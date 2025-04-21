@@ -22,7 +22,7 @@ if run_button:
     st.write(f"### Optimizing portfolio for: {', '.join(tickers)}")
 
     # --- Data Download ---
-    data = yf.download(tickers, start=start_date, end=end_date)['Adj Close']
+    data = yf.download(tickers, start=start_date, end=end_date)['Close']
     returns = data.pct_change().dropna()
     mean_returns = returns.mean() * 252
     cov_matrix = returns.cov() * 252
